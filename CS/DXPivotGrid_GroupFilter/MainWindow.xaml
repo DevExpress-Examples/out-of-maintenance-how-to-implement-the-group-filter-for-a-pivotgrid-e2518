@@ -1,4 +1,4 @@
-﻿<Window xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
+<Window xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"

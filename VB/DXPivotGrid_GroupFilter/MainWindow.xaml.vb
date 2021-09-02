@@ -1,11 +1,11 @@
-﻿Imports Microsoft.VisualBasic
-Imports System.Windows
+﻿Imports System.Windows
 Imports System.Windows.Controls
 Imports DevExpress.Xpf.PivotGrid
 
 Namespace DXPivotGrid_GroupFilter
 	Partial Public Class MainWindow
 		Inherits Window
+
 		Public Sub New()
 			InitializeComponent()
 		End Sub
@@ -13,8 +13,7 @@ Namespace DXPivotGrid_GroupFilter
 			Me.pivotGridControl1.DataSource = GetTimeTableView()
 			fieldMonth.CollapseAll()
 		End Sub
-		Private Sub RadioButtonList_SelectionChanged(ByVal sender As Object, _
-					ByVal e As SelectionChangedEventArgs)
+		Private Sub RadioButtonList_SelectionChanged(ByVal sender As Object, ByVal e As SelectionChangedEventArgs)
 			If pivotGridControl1 Is Nothing Then
 				Return
 			End If
@@ -46,8 +45,7 @@ Namespace DXPivotGrid_GroupFilter
 		End Sub
 		Private Sub SelectFirstDays(ByVal group As PivotGridGroup)
 			For Each year As Object In group.GetUniqueValues(Nothing)
-				Dim value As DevExpress.XtraPivotGrid.PivotGroupFilterValue = _
-					group.FilterValues.Values.Add(year)
+				Dim value As DevExpress.XtraPivotGrid.PivotGroupFilterValue = group.FilterValues.Values.Add(year)
 				For Each month As Object In group.GetUniqueValues(New Object() { year })
 					value.ChildValues.Add(month).ChildValues.Add(1)
 				Next month

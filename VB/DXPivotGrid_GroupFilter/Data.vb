@@ -1,4 +1,4 @@
-﻿Imports Microsoft.VisualBasic
+﻿Imports System
 Imports System.Data
 Imports System.Globalization
 Imports System.Windows
@@ -7,6 +7,7 @@ Imports DevExpress.Xpf.PivotGrid
 Namespace DXPivotGrid_GroupFilter
 	Partial Public Class MainWindow
 		Inherits Window
+
 		Private Function GetTimeTableView() As DataView
 			Dim years() As Integer = { 2009, 2010 }
 
@@ -27,8 +28,8 @@ Namespace DXPivotGrid_GroupFilter
 			Return table.DefaultView
 		End Function
 		Private Sub pivotGridControl1_FieldValueDisplayText(ByVal sender As Object, ByVal e As PivotFieldDisplayTextEventArgs)
-			If Object.ReferenceEquals(e.Field, fieldMonth) Then
-				e.DisplayText = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(CInt(Fix(e.Value)))
+			If e.Field = fieldMonth Then
+				e.DisplayText = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(CInt(Math.Truncate(e.Value)))
 			End If
 		End Sub
 	End Class
